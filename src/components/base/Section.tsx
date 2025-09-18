@@ -5,13 +5,11 @@ const Section = ({
   className,
   children,
 }: {
-  className: string;
+  className?: string;
   children: ReactNode;
 }) => {
   return (
-    <section className={cn("container mx-auto px-5", className)}>
-      {children}
-    </section>
+    <section className={cn("container mx-auto", className)}>{children}</section>
   );
 };
 

@@ -5,10 +5,10 @@ const Text = ({
   className,
   children,
 }: {
-  className: string;
+  className?: string;
   children: ReactNode;
 }) => {
-  return <p className={cn("", className)}>{children}</p>;
+  return <p className={cn("text-base", className)}>{children}</p>;
 };
 
 export default Text;
