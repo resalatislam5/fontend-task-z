@@ -9,7 +9,7 @@ const Section = ({
   children: ReactNode;
 }) => {
   return (
-    <section className={cn("container mx-auto", className)}>{children}</section>
+    <section className={cn("max-w-[2100px]", className)}>{children}</section>
   );
 };
 
