@@ -1,8 +1,8 @@
 import { fetchApi } from "@/api";
 import { useCallback, useEffect, useState } from "react";
 
-const useFetch = (url: string, options?: object) => {
-  const [state, setState] = useState([]);
+function useFetch<T>(url: string, options?: object) {
+  const [state, setState] = useState<T | null>(null);
   const [isLoading, setLoading] = useState(true);
   const handleFetch = useCallback(async () => {
     try {
@@ -18,6 +18,6 @@ const useFetch = (url: string, options?: object) => {
   }, [handleFetch]);
 
   return { state, isLoading };
-};
+}
 
 export default useFetch;

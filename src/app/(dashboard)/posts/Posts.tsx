@@ -8,10 +8,12 @@ import useFetch from "@/hooks/useFetch";
 import { PostsTypes } from "@/types";
 
 const Posts = () => {
-  const { state: posts, isLoading } = useFetch("posts");
+  const { state: posts, isLoading } = useFetch<PostsTypes[]>("posts");
+  // if (!posts) return <Heading>NO Post Found</Heading>;
+
   return (
     <Section>
-      <Heading>ALL Posts ({posts.length ?? 0})</Heading>
+      <Heading>ALL Posts ({posts ? posts.length : 0})</Heading>
 
       <div className="flex flex-wrap gap-5 mt-10">
         {isLoading ? (
@@ -22,9 +24,10 @@ const Posts = () => {
           </>
         ) : (
           <>
-            {posts.map((item: PostsTypes) => (
-              <Card key={item?.id} data={item} />
-            ))}
+            {posts &&
+              posts.map((item: PostsTypes) => (
+                <Card key={item?.id} data={item} />
+              ))}
           </>
         )}
       </div>
