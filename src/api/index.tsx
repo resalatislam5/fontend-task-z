@@ -4,8 +4,10 @@ export const fetchApi = async (url: string, options?: object) => {
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/${url}`,
       options
     );
+    // if (!res.ok) {
+    //   throw new Error("Data Not Found In This Url");
+    // }
     const data = await res.json();
-
     return data;
   } catch (e: unknown) {
     console.error(e);

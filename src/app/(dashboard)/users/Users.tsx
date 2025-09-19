@@ -11,6 +11,7 @@ const Users = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<UserTypes | null>(null);
   const { state: users } = useFetch<UserTypes[]>("users");
+
   return (
     <Section>
       <UserModal isOpen={isOpen} setIsOpen={setIsOpen} item={user} />
